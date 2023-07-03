@@ -1,0 +1,40 @@
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <div class="navbar-brand">DIGIMON APP</div>
+            <div class="row">
+                <div class="col S5">
+                        <div class="card">
+                            <div class="card-content">
+                                <form #digimonForm ="ngForm" (ngSubmit)="addDigimon(digimonForm)">
+                                    <div class="row">
+        
+                                        <div class="form-group">
+                                            <input type="text" name="name" #name="ngModel" [(ngModel)] = "digimonService.selectedDigimon.name"
+                                            placeholder="Ingresa nuevo digimon:"  class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="text" name="img" #name="ngModel" [(ngModel)] = "digimonService.selectedDigimon.img"
+                                            placeholder="Ingresa la foto:"  class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="level" #name="ngModel" [(ngModel)] = "digimonService.selectedDigimon.level"
+                                            placeholder="Ingresa su nivel:" class="form-control">
+                                        </div>
+        
+                                                <button class="btn btn-secondary" style="margin-left: 2px;">Guardar</button>
+                                               <!--<button class="btn btn-primary mr-2" (click)="resetForm(digimonForm)">Limpiar</button>--> 
+        
+                                    </div>
+                                </form>
+        
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <img src= "{{digimonService.img}}">
+        </div>
+    </nav>
+
+    

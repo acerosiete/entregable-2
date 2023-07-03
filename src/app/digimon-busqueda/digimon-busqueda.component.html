@@ -1,0 +1,60 @@
+<div class="card">
+    <div class="card-content">
+        <form #digimonListForm ="ngForm" (ngSubmit)="getAllDigimons(digimonListForm)">
+
+            <div class="row">
+                <button class="btn btn-secondary" style="margin-left: 2px;">Lista todos los Digimons</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-content">
+        <form #digimonNameForm ="ngForm" (ngSubmit)="getDigimonByName(textDigiNombre.value,digimonNameForm)">
+            <div class="row">
+
+                <div class="form-group">
+                    <input type="text"  #textDigiNombre
+                    placeholder="Ingresa nombre del digimon:"  class="form-control">
+                </div>
+                        <button class="btn btn-secondary" style="margin-left: 2px;">Buscar</button>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-content">
+        <form #digimonLevelForm ="ngForm" id="form2" (ngSubmit)="getDigimonByLevel(textDigiLevel.value,digimonLevelForm)">
+            <div class="row">
+
+                <div class="form-group">
+                    <input type="text" #textDigiLevel
+                    placeholder="Ingresa nivel de digimon:"  class="form-control">
+                </div>
+                        <button class="btn btn-secondary" style="margin-left: 2px;">Buscar</button>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+<div class="col s7">
+    <table class="table table-striped">
+        <thead>
+          <th>Nombre</th>
+          <th>Nivel</th>
+          <th>Imagen</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let digimon of digimonService.digimons">
+            <td>{{ digimon.name }}</td>
+            <td>{{ digimon.level }}</td>
+            <td> <img src= "{{digimon.img}}"></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
